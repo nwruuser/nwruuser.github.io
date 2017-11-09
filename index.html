@@ -1,0 +1,55 @@
+﻿<html>
+<head>
+<title>Neverwinter Debuffs Calculator</title>
+<style>
+a:link {color: green;}
+a:visited {color: green;}
+a:hover {color: red;}
+a:active {color: green;} 
+.d1 {background-color: #ffffe6; border: 4px double black; width: 500px; height:394px;}
+.d2 {width: 480px; padding: 10px;}
+.d3 {background-color: #f2ffe6; width: 480px; padding: 10px; border-top: 1px solid black; border-bottom: 1px solid black;}
+.d4 {width: 480px; padding-left: 10px; padding-right:8px; padding-top: 8px;}
+.d5 {width: 480px;}
+</style>
+<script>
+function Func(){
+if (Number(n.value) < Number(s.value)){
+return "(100*(1+(Number(n.value)/100)-(Number(s.value)/100))*(1+(Number(result.value)/100))).toFixed(2)";}
+else if (Number(n.value) >= Number(s.value)){
+return "(100*(1+(Number(result.value)/100))).toFixed(2)";
+}
+}
+</script>
+</head>
+<body>
+<div class="d1">
+<div class="d2">
+<h3 align="center">Калькулятор эффективности дебаффов в Neverwinter</h3>
+</div>
+<div class="d3">
+<form oninput="
+result.value=(100*(3*(x.value/100)*(x.value/100)+9*(x.value/100))/((x.value/100)*(x.value/100)+3*(x.value/100)+9)).toFixed(2);
+result1.value=eval(Func());
+">
+<p align="center"><span style="color:rgb(56,118,29)"><b><i>∑Д:</i></b></span> <input type="number" style="width: 5em" name="x" id="x" min="0" value="0">%&nbsp; &nbsp; &nbsp; 
+<span style="color:rgb(56,118,29)"><b><i>НС:</i></b></span> <input type="number" step="0.1" style="width: 5em" name="n" id="n" min="0" max="85" value="85">%&nbsp; &nbsp; &nbsp;
+<span style="color:rgb(56,118,29)"><b><i>СУ:</i></b></span> <input type="number" step="0.1" style="width: 5em" name="s" id="s" min="0" max="85" value="85">%</p>
+<p align="center"><span style="color:rgb(56,118,29)"><b><i>ЭФ*:</i></b></span> +<output name="result">0.00</output>%&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<span style="color:rgb(56,118,29)"><b><i>ЭФ:</i></b></span> <output name="result1" for "n s x">100.00</output>%</p>
+</form>
+</div>
+<div class="d4">
+<p><span style="color:rgb(56,118,29)"><b><i>∑Д</i></b></span> – сумма дебаффов на цели</p>
+<p><span style="color:rgb(56,118,29)"><b><i>НС</i></b></span> – неучитываемая сопротивляемость атакующего</p>
+<p><span style="color:rgb(56,118,29)"><b><i>СУ</i></b></span> – сопротивляемость урону цели</p>
+<p><span style="color:rgb(56,118,29)"><b><i>ЭФ*</i></b></span> – эффективность суммы дебаффов с учетом падающей отдачи</p>
+<p><span style="color:rgb(56,118,29)"><b><i>ЭФ</i></b></span> – финальная эффективность</p>
+</div>
+</div>
+<div class="d5">
+<p align="center"><font color="#404040" size="2"><a href="https://sites.google.com/site/nwdebuffsguide/" target="_blank">Гайд по дебаффам в Neverwinter</a></font></p>
+<p align="center"><font size="2"><i>=== Гильдия М.А.Ф.И.Я ===</i></font></p>
+</div>
+</body>
+</html>
